@@ -1,0 +1,7 @@
+.lake/
+.DS_Store
+*.olean
+*.olean.private
+*.olean.server
+*.ilean
+*.ir

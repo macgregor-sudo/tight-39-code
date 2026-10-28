@@ -1,0 +1,41 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "CKM.NativeTightCodeConsumer.code_bound",
+    "CKM.NativeTightCodeConsumer.code_bound_sharp",
+    "CKM.NativeTightCodeConsumer.tight_code_iff_frames",
+    "SupportedStress.supported_stress_local_criterion",
+    "CKM.NativeExactFrameEnergy.native_energy_sandwich",
+    "CompactAlbert.native_idempotent_iff_scaled_specialUnitary_of_literal_quartet_readouts",
+    "CompactAlbert.nativeComplementaryPoint_scaled_hidden_inverse",
+    "CompactAlbert.native_complementary_frame_iff_exists_central_order",
+    "CompactAlbert.native_ordered_central_triples_overlap_iff_hilbertSchmidt",
+    "CKM.NativeUnlabelledSlice.literalCfg_mem_tightLocus",
+    "Option2StatementCode.exists_goodAvoid_codeClass_mem_nhds_one",
+    "Option2StatementA1.state_equivalence",
+    "Option2StatementA1.quartet_fixer_classification",
+    "Option2StatementA1.quartet_fixer_converse",
+    "Option2StatementCode.originalCode_no_open24_chart",
+    "Option2StatementCode.originalCode_no_charted24_neighborhood",
+    "Option2StatementA3.finrank_original_derivative_kernel",
+    "Option2StatementA1.nine_frame_array",
+    "Option2StatementA3Matrix.unrestricted_matrix_normal_form",
+    "Option2StatementA3Matrix.firstOrder_dimension",
+    "Option2StatementA3Matrix.resonance_count_cases",
+    "Option2StatementA2.full_A2",
+    "Option2StatementA5Slice.native_A5_geometry",
+    "Option2StatementA4.full_A4",
+    "Option2StatementA6.native_A6",
+    "Option2StatementCode.native_A7_local_dimension",
+    "Option2StatementR.native_real_endpoint",
+    "Option2StatementR.normal_form_exists",
+    "Option2StatementR.native_exact_frame_quartic_stability_near_orbit"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

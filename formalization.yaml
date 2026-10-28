@@ -1,0 +1,241 @@
+{
+  "version": "v0.4",
+  "project": {
+    "name": "On the local geometry of the tight 39-point code in 𝕆P²",
+    "description": "Cohn, Kumar and Minton constructed a universally optimal code of thirty-nine points in the octonionic projective plane 𝕆P², whose existence was conjectured by Hoggar. Its points form thirteen mutually unbiased Jordan frames, and a four-parameter phase family deforms the code through such configurations. This Lean development describes their local geometry under the automorphism group F₄. At every nonresonant phase, every nearby real solution of the defining equations belongs to one of four smooth families of labelled configurations. In a local slice for F₄, their union has normal form R⁴ × ⋃ᵢ₌₁⁴ R⁶ᵢ, with the R⁶ᵢ in direct sum. The distance to the localized family union is bounded by a phase-dependent constant times the square root of the residual, and the exponent 1/2 is sharp in the ambient configuration space. On an explicit open dense subset of the nonresonant phases, the complexified families are exactly the top-dimensional components of the complex solution germ, each generically reduced. Every neighbourhood of the original code in the space of unlabelled tight 39-point codes modulo F₄ contains points of local dimension 10.\n\nThe results are local, the resonant germ at the original code is not classified, and lower-dimensional complex components are not excluded. For exact frames and strongly convex C² overlap potentials, we prove a two-sided comparison of the energy gap with squared overlap errors and, near each nonresonant orbit, a quartic lower bound in distance to the localized family union. Except for attributed third-party material, all text and code are AI-generated under Robert R. MacGregor’s direction. Robert is an amateur who welcomes collaboration (macgregor@gmail.com).",
+    "authors": [
+      "Robert R. MacGregor"
+    ],
+    "responsible_maintainers": [
+      "Robert R. MacGregor"
+    ],
+    "license": "Apache-2.0"
+  },
+  "repository": {
+    "role": "substantive-development"
+  },
+  "classification": {
+    "arxiv": [
+      "math.DG",
+      "math.CO",
+      "math.RA"
+    ],
+    "msc2020": []
+  },
+  "sources": [
+    {
+      "type": "original-proof",
+      "title": "On the local geometry of the tight 39-point code in 𝕆P²",
+      "relationship": "other",
+      "location": "README.md and the separately implemented Solution.lean proof closure",
+      "note": "This development presents the local deformation arguments and their formalization. This source classification is not a novelty certification. Established mathematical inputs and borrowed formal implementations are attributed separately."
+    },
+    {
+      "type": "paper",
+      "title": "Optimal simplices and codes in projective spaces",
+      "authors": [
+        "Henry Cohn",
+        "Abhinav Kumar",
+        "Gregory Minton"
+      ],
+      "relationship": "background",
+      "id": "https://arxiv.org/abs/1308.3188",
+      "location": "Section 8.2, configuration, phase family and Conjecture 8.4",
+      "note": "Source of the configuration and conjecture; the formalized local deformation conclusions are not attributed to the conjecture as proved results."
+    },
+    {
+      "type": "paper",
+      "title": "All teleportation and dense coding schemes",
+      "authors": [
+        "Reinhard F. Werner"
+      ],
+      "relationship": "background",
+      "id": "https://arxiv.org/abs/quant-ph/0003070",
+      "note": "Shift-and-multiply unitary error bases; a construction input, not classification of all bases."
+    },
+    {
+      "type": "book",
+      "title": "Convex Optimization",
+      "authors": [
+        "Stephen Boyd",
+        "Lieven Vandenberghe"
+      ],
+      "relationship": "background",
+      "location": "Section 9.1.2, equations (9.8) and (9.13)",
+      "note": "Taylor/strong-convexity comparison used in the exact-frame consequence."
+    },
+    {
+      "type": "book",
+      "title": "Dimension Theory",
+      "authors": [
+        "Ryszard Engelking"
+      ],
+      "relationship": "background",
+      "location": "1978; Theorem 1.5.3, Corollary 1.5.4, Theorems 1.8.1–1.8.2",
+      "note": "Classical closed-sum and Euclidean small-inductive-dimension results."
+    }
+  ],
+  "related_formalizations": [
+    {
+      "id": "https://github.com/macgregor-sudo/compact-albert-recognition/tree/40d3b344180d9ddb78aaa2876873377c1e631515",
+      "relationship": "builds-on",
+      "note": "Finite Observations and Recognition of the Compact Albert Algebra. Reuses the native real division-octonion/Albert carrier, product and trace, Hermitian coordinate and sector-action adapters, and adapted algebra-law, cubic-identity, inner-derivation and flow lemmas. Selected components are extracted and adapted to this project’s module layout and conventions; this does not import the prior recognition conclusions as assumptions. Exact component mappings, modifications and Apache-2.0 notices are retained in THIRD_PARTY_NOTICES.md and source headers."
+    },
+    {
+      "id": "https://github.com/macgregor-sudo/albert-frame-triple-invariants/tree/dd06ef5d423a0e4a5d814d2c221e999b98887ee1",
+      "relationship": "adapts",
+      "note": "Rational invariants of three frames in the split Albert algebra (PALOMAR-2026-09-13-000001, version 1). The general cubic-trace-identity implication in AlbertLean/CubicJordan.lean is an ancestor of Proofs/NativeTrialityReuseCubicJordan.lean, adapted through compact-albert-recognition from rational to real scalar/API form and renamed for this closure. The native compact cubic identity is proved separately; neither the split-Albert invariant-field result nor its model-identification theorem is reused as a compact-Albert result. Apache-2.0 ancestry and retained notices are described in THIRD_PARTY_NOTICES.md."
+    }
+  ],
+  "automation": {
+    "methods": [
+      {
+        "method": "AI-assisted mathematical argument development and Lean proof authoring",
+        "note": "Except for attributed third-party material, text and code were generated by AI systems under Robert R. MacGregor’s direction."
+      },
+      {
+        "method": "Independent automated source and claim-to-code review",
+        "note": "Separate reviewers assessed native meanings, assumptions, scope and prose; recorded findings were reconciled. No independent human mathematical verification is asserted."
+      },
+      {
+        "method": "Pinned Lean compilation",
+        "note": "Full official preflight and Palomar mechanical verification passed for commit 5c32905c537928d749b2e9b7440baf7bbeb93ee0, covering all 29 selected targets, exact Challenge–Solution statement/definition comparison, permitted-axiom checks, and Lean plus NanoDa replay. Con-ron recorded an allowed capacity decline. This revision changes only prose/metadata; its own full preflight is pending. The earlier reports do not certify this revised metadata."
+      }
+    ]
+  },
+  "review": {
+    "status": "agent-reviewed",
+    "notes": "Independent source and mathematical-prose reviews completed and findings were reconciled. The 29 selected targets at commit 5c32905c537928d749b2e9b7440baf7bbeb93ee0 subsequently passed official mechanical verification with Lean and NanoDa. This prose/metadata revision retains those Lean sources but requires its own preflight and editorial review. No registration or independent human mathematical verification is claimed."
+  },
+  "status": {
+    "scope": "29 comparator-selected statements; see README theorem map and exact Challenge hypotheses.",
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_axiom_audit": "All 29 selected targets at commit 5c32905c537928d749b2e9b7440baf7bbeb93ee0 passed official checks with permitted axioms propext, Classical.choice and Quot.sound. Lean sources and comparator configuration are unchanged in this prose/metadata revision; the revised-commit preflight is pending.",
+    "challenge_placeholders": "Designated Challenge theorem holes specify the targets; Solution does not import Challenge.",
+    "main_results": [
+      {
+        "name": "CKM.NativeTightCodeConsumer.code_bound",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CKM.NativeTightCodeConsumer.code_bound_sharp",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CKM.NativeTightCodeConsumer.tight_code_iff_frames",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "SupportedStress.supported_stress_local_criterion",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CKM.NativeExactFrameEnergy.native_energy_sandwich",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CompactAlbert.native_idempotent_iff_scaled_specialUnitary_of_literal_quartet_readouts",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CompactAlbert.nativeComplementaryPoint_scaled_hidden_inverse",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CompactAlbert.native_complementary_frame_iff_exists_central_order",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CompactAlbert.native_ordered_central_triples_overlap_iff_hilbertSchmidt",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "CKM.NativeUnlabelledSlice.literalCfg_mem_tightLocus",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementCode.exists_goodAvoid_codeClass_mem_nhds_one",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA1.state_equivalence",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA1.quartet_fixer_classification",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA1.quartet_fixer_converse",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementCode.originalCode_no_open24_chart",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementCode.originalCode_no_charted24_neighborhood",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA3.finrank_original_derivative_kernel",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA1.nine_frame_array",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA3Matrix.unrestricted_matrix_normal_form",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA3Matrix.firstOrder_dimension",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA3Matrix.resonance_count_cases",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA2.full_A2",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA5Slice.native_A5_geometry",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA4.full_A4",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementA6.native_A6",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementCode.native_A7_local_dimension",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementR.native_real_endpoint",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementR.normal_form_exists",
+        "comparator_config": "comparator.json"
+      },
+      {
+        "name": "Option2StatementR.native_exact_frame_quartic_stability_near_orbit",
+        "comparator_config": "comparator.json"
+      }
+    ]
+  },
+  "fidelity": {
+    "divergences": "The real conclusion uses IsGoodPhase. Complex component and quotient-dimension conclusions use the explicitly defined replacement dense locus; no inclusion/equality with the older determinant-defined locus is asserted. Largest-dimensional complex components do not classify all components. Sharpness is ambient, not asserted within exact frames. No nonlinear classification of the original resonant germ, global classification, uniform estimate at excluded phases, or physical theory is claimed."
+  }
+}

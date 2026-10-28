@@ -1,0 +1,92 @@
+/-
+Isolated pinned-toolchain port of https://github.com/bjbraams/lean-SCV
+Revision: 50392764ae64d75779abbea1396fe93d80b677cc
+Original file: SeveralComplexVariables/IdentityPrinciple.lean; copied scope: the complete original file.
+Original author/copyright holder: Bastiaan J Braams (retained header below).
+License: Apache-2.0; unchanged upstream license retained at LICENSES/SCV-Apache-2.0.txt.
+Changes: pinned-toolchain compatibility port, public module/import adaptation and attribution comments; see THIRD_PARTY_NOTICES.md#scv-complex-analysis for the public modification record.
+Thank you to the lean-SCV author and Lean/Mathlib contributors.
+“If I have seen further it is by standing on the sholders of Giants.”
+— Isaac Newton, letter to Robert Hooke, 1676.
+-/
+/-
+Copyright (c) 2026 Bastiaan J Braams. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Bastiaan J Braams
+-/
+module
+
+public import Mathlib.Analysis.Normed.Module.Completion
+public import SeveralComplexVariables.Analyticity
+
+/-!
+# The identity theorem for holomorphic functions in several variables
+
+Holomorphic maps on a preconnected open subset of a finite-dimensional complex normed space
+agree everywhere if they agree near one point, equivalently on a nonempty open subset. The
+target may be any complex normed space; completeness is not needed. The proofs pass to the
+completion of the target, then use the project's holomorphic–analytic equivalence and Mathlib's
+analytic identity principle.
+
+`DifferentiableOn.eqOn_of_preconnected_of_eqOn` is
+[Fritzsche–Grauert][FritzscheGrauert2002] (2002), I.4.10, p. 22,
+with normed-space targets. Finite coordinate spaces `ι → ℂ` are covered as finite-dimensional
+spaces, including empty coordinate types. The agreement set must be nonempty; agreement merely on a
+set with a cluster point does not suffice in several variables.
+
+## Main results
+
+* `DifferentiableOn.eqOn_of_preconnected_of_eqOn`: **Identity theorem
+  ([Fritzsche–Grauert][FritzscheGrauert2002] I.4.10).** Two holomorphic maps on an open,
+  preconnected set agree everywhere if they agree on a nonempty open subset.
+
+## References
+
+* [K. Fritzsche and H. Grauert, *From Holomorphic Functions to Complex
+  Manifolds*][FritzscheGrauert2002]
+-/
+
+public section
+
+open Set Filter
+open scoped Topology
+
+namespace DifferentiableOn
+
+variable {E F : Type*} [NormedAddCommGroup E] [NormedSpace ℂ E]
+  [FiniteDimensional ℂ E] [NormedAddCommGroup F] [NormedSpace ℂ F]
+
+/-- The holomorphic identity principle from equality near one point of an open, preconnected set.
+The target may be any complex normed space: composing with the isometric embedding into the
+completion reduces to the Banach-valued analytic identity principle. -/
+theorem eqOn_of_preconnected_of_eventuallyEq {U : Set E} (hU : IsOpen U)
+    (hconn : IsPreconnected U) {f g : E → F}
+    (hf : DifferentiableOn ℂ f U) (hg : DifferentiableOn ℂ g U)
+    {a : E} (ha : a ∈ U) (heq : f =ᶠ[𝓝 a] g) : EqOn f g U := by
+  let ι : F →L[ℂ] UniformSpace.Completion F := UniformSpace.Completion.toComplL
+  have hfι := ι.differentiable.comp_differentiableOn hf
+  have hgι := ι.differentiable.comp_differentiableOn hg
+  have h := (hfι.analyticOnNhd_of_finiteDimensional hU).eqOn_of_preconnected_of_eventuallyEq
+    (hgι.analyticOnNhd_of_finiteDimensional hU) hconn ha (heq.fun_comp ι)
+  exact fun z hz => UniformSpace.Completion.coe_injective F (h hz)
+
+/-- **Identity theorem ([Fritzsche–Grauert][FritzscheGrauert2002] I.4.10).** Two holomorphic maps on
+an open, preconnected set agree everywhere if they agree on a nonempty open subset. -/
+theorem eqOn_of_preconnected_of_eqOn {U V : Set E} (hU : IsOpen U) (hconn : IsPreconnected U)
+    {f g : E → F} (hf : DifferentiableOn ℂ f U) (hg : DifferentiableOn ℂ g U)
+    (hV : IsOpen V) (hne : V.Nonempty) (hVU : V ⊆ U) (heq : EqOn f g V) :
+    EqOn f g U := by
+  obtain ⟨a, ha⟩ := hne
+  exact hf.eqOn_of_preconnected_of_eventuallyEq hU hconn hg (hVU ha)
+    (Filter.mem_of_superset (hV.mem_nhds ha) (fun _ hx => heq hx))
+
+/-- A holomorphic map vanishing on a nonempty open subset vanishes throughout the open, preconnected
+domain. -/
+theorem eqOn_zero_of_preconnected_of_eqOn_zero {U V : Set E} (hU : IsOpen U)
+    (hconn : IsPreconnected U)
+    {f : E → F} (hf : DifferentiableOn ℂ f U)
+    (hV : IsOpen V) (hne : V.Nonempty) (hVU : V ⊆ U) (heq : EqOn f 0 V) :
+    EqOn f 0 U :=
+  hf.eqOn_of_preconnected_of_eqOn hU hconn (differentiableOn_const 0) hV hne hVU heq
+
+end DifferentiableOn
